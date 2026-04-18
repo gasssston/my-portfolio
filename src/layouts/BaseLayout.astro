@@ -1,0 +1,47 @@
+---
+const {
+  title = "Gastón Gómez – Front-End Developer",
+  description = "Portfolio profesional de Gastón Gómez, desarrollador Front-End especializado en Angular, React, Ionic y TypeScript.",
+  image = "/og-image.png",
+} = Astro.props;
+
+import "../styles/global.css";
+---
+
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Animaciones -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  </head>
+
+  <body
+    class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-inter"
+  >
+    <slot />
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" onload="AOS.init()"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    title: "Mini CRM",
+    description:
+      "CRM con React + TS + Tailwind. CRUD, filtros y autenticación.",
+    tech: ["React", "TypeScript", "Tailwind"],
+    link: "#",
+  },
+  {
+    title: "Dashboard Angular",
+    description: "Dashboard con roles, gráficas y JWT.",
+    tech: ["Angular", "RxJS", "JWT"],
+    link: "#",
+  },
+  {
+    title: "App Móvil Ionic",
+    description: "App híbrida con login, offline mode y sincronización.",
+    tech: ["Ionic", "Capacitor", "TS"],
+    link: "#",
+  },
+];
+---
+
+<section id="projects" class="max-w-5xl mx-auto py-20">
+  <h3 class="text-3xl font-semibold mb-10 text-center">Proyectos</h3>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {projects.map((p) => <ProjectCard {...p} />)}
+  </div>
+</section>
