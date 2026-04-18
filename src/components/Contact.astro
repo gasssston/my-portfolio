@@ -1,5 +1,7 @@
 ---
+import InputT from "./InputT";
 import T from "./T";
+import TextareaT from "./TextareaT";
 ---
 
 <section id="contact" class="max-w-3xl mx-auto py-20" data-aos="fade-up">
@@ -13,45 +15,50 @@ import T from "./T";
     action="https://formspree.io/f/mlganegn"
     method="POST"
   >
-    <input
-      type="text"
-      placeholder="Tu nombre"
-      class="p-3 rounded"
+    <InputT
+      client:load
       name="name"
-      style="
-        background-color: var(--form-field-bg);
-        color: var(--form-field-text);
-        border: 1px solid var(--form-field-border);
-      "
+      k="contact.name"
+      style={{
+        padding: "0.75rem",
+        borderRadius: "0.375rem",
+        backgroundColor: "var(--form-field-bg)",
+        color: "var(--form-field-text)",
+        border: "1px solid var(--form-field-border)",
+      }}
     />
 
-    <input
+    <InputT
+      client:load
       type="email"
-      placeholder="Tu email"
-      class="p-3 rounded"
       name="email"
-      style="
-        background-color: var(--form-field-bg);
-        color: var(--form-field-text);
-        border: 1px solid var(--form-field-border);
-      "
+      k="contact.email"
+      style={{
+        padding: "0.75rem",
+        borderRadius: "0.375rem",
+        backgroundColor: "var(--form-field-bg)",
+        color: "var(--form-field-text)",
+        border: "1px solid var(--form-field-border)",
+      }}
     />
 
-    <textarea
-      placeholder="Mensaje"
-      rows="5"
-      class="p-3 rounded"
+    <TextareaT
+      client:load
+      as="textarea"
       name="message"
-      style="
-        background-color: var(--form-field-bg);
-        color: var(--form-field-text);
-        border: 1px solid var(--form-field-border);
-      "
-    ></textarea>
+      k="contact.message"
+      style={{
+        padding: "0.75rem",
+        borderRadius: "0.375rem",
+        backgroundColor: "var(--form-field-bg)",
+        color: "var(--form-field-text)",
+        border: "1px solid var(--form-field-border)",
+      }}
+    />
 
     <button
       type="submit"
-      class="py-3 rounded transition"
+      class="py-3 rounded transition cursor-pointer"
       style="
         background-color: var(--form-btn-bg);
         color: var(--form-btn-text);
@@ -59,7 +66,7 @@ import T from "./T";
       onmouseover="this.style.backgroundColor='var(--form-btn-bg-hover)'"
       onmouseout="this.style.backgroundColor='var(--form-btn-bg)'"
     >
-      Enviar mensaje
+      <T client:load k="contact.send" />
     </button>
   </form>
 </section>
