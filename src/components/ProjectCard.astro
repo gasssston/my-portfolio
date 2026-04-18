@@ -1,4 +1,6 @@
 ---
+import T from "./T";
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -39,6 +41,6 @@ const { title, description, tech, link } = Astro.props as ProjectCardProps;
     class="hover:underline"
     style="color: var(--card-link);"
   >
-    Ver proyecto
+    <T client:load k="project.view" />
   </a>
 </div>

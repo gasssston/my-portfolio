@@ -1,0 +1,26 @@
+{
+  "loader": {
+    "text": "Welcome to my Portfolio"
+  },
+  "hero": {
+    "title": "Hi, I'm Gastón 👋",
+    "subtitle": "Front-End Developer specialized in Angular, React, Ionic and TypeScript.",
+    "projects": "View Projects",
+    "contact": "Contact"
+  },
+  "nav": {
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Message",
+    "send": "Send message"
+  },
+  "project": {
+    "view": "View Project"
+  },
+  "projects": "Projects"
+}

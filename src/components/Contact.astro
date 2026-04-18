@@ -1,5 +1,11 @@
+---
+import T from "./T";
+---
+
 <section id="contact" class="max-w-3xl mx-auto py-20" data-aos="fade-up">
-  <h3 class="text-3xl font-semibold mb-6 text-center">Contacto</h3>
+  <h3 class="text-3xl font-semibold mb-6 text-center">
+    <T client:load k="contact.title" />
+  </h3>
 
   <form
     class="grid gap-4 p-8 rounded-lg shadow-md"

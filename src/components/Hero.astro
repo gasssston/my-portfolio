@@ -1,15 +1,17 @@
+---
+import T from "./T";
+---
+
 <section class="max-w-5xl mx-auto text-center py-28" data-aos="fade-up">
   <img
     src="avatar.jpg"
     class="w-48 h-48 rounded-md mx-auto mb-6 shadow-lg object-contain"
   />
 
-  <h2 class="text-5xl font-bold mb-4">Hola, soy Gastón 👋</h2>
+  <h2 class="text-5xl font-bold mb-4"><T client:load k="hero.title" /></h2>
 
   <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-    Front-End Developer especializado en Angular, React, Ionic y TypeScript.
-    Construyo productos rápidos, accesibles y con enfoque en experiencia de
-    usuario.
+    <T client:load k="hero.subtitle" />
   </p>
 
   <div class="mt-10 flex justify-center gap-4">
@@ -23,7 +25,7 @@
       onmouseover="this.style.backgroundColor='var(--btn-primary-bg-hover)'"
       onmouseout="this.style.backgroundColor='var(--btn-primary-bg)'"
     >
-      Ver proyectos
+      <T client:load k="hero.projects" />
     </a>
 
     <a
@@ -36,7 +38,7 @@
       onmouseover="this.style.backgroundColor='var(--btn-secondary-bg-hover)'"
       onmouseout="this.style.backgroundColor='transparent'"
     >
-      Contactar
+      <T client:load k="hero.contact" />
     </a>
   </div>
 </section>

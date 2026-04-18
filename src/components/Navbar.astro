@@ -1,3 +1,7 @@
+---
+import T from "../components/T.jsx";
+---
+
 <nav
   class="w-full py-4 px-6 flex justify-between items-center backdrop-blur sticky top-0 z-50"
   style="background-color: var(--nav-bg); color: var(--nav-text);"
@@ -12,7 +16,7 @@
       onmouseover="this.style.color='var(--nav-hover)'"
       onmouseout="this.style.color='var(--nav-text)'"
     >
-      Proyectos
+      <T client:load k="nav.projects" />
     </a>
 
     <a
@@ -22,7 +26,7 @@
       onmouseover="this.style.color='var(--nav-hover)'"
       onmouseout="this.style.color='var(--nav-text)'"
     >
-      Contacto
+      <T client:load k="nav.contact" />
     </a>
 
     <button
@@ -32,9 +36,29 @@
     >
       🌙
     </button>
+
+    <div class="flex gap-2">
+      <button
+        onclick="setLang('es')"
+        class="cursor-pointer rounded transition"
+        style="color: var(--nav-text);"
+        onmouseover="this.style.color='var(--nav-hover)'"
+        onmouseout="this.style.color='var(--nav-text)'">ES</button
+      >
+      <button
+        onclick="setLang('en')"
+        class="cursor-pointer rounded transition"
+        style="color: var(--nav-text);"
+        onmouseover="this.style.color='var(--nav-hover)'"
+        onmouseout="this.style.color='var(--nav-text)'">EN</button
+      >
+    </div>
   </div>
 
   <script>
+    import { changeLang } from "../i18n/i18n.js";
+    window.setLang = changeLang;
+
     const btn = document.getElementById("theme-toggle");
 
     if (btn)
