@@ -1,24 +1,51 @@
 <section id="contact" class="max-w-3xl mx-auto py-20" data-aos="fade-up">
   <h3 class="text-3xl font-semibold mb-6 text-center">Contacto</h3>
 
-  <form class="grid gap-4 bg-white dark:bg-gray-800 p-8 rounded-lg shadow">
+  <form
+    class="grid gap-4 p-8 rounded-lg shadow-md"
+    style="background-color: var(--form-bg); color: var(--form-text);"
+  >
     <input
       type="text"
       placeholder="Tu nombre"
-      class="p-3 rounded bg-gray-100 dark:bg-gray-700"
+      class="p-3 rounded"
+      style="
+        background-color: var(--form-field-bg);
+        color: var(--form-field-text);
+        border: 1px solid var(--form-field-border);
+      "
     />
+
     <input
       type="email"
       placeholder="Tu email"
-      class="p-3 rounded bg-gray-100 dark:bg-gray-700"
+      class="p-3 rounded"
+      style="
+        background-color: var(--form-field-bg);
+        color: var(--form-field-text);
+        border: 1px solid var(--form-field-border);
+      "
     />
+
     <textarea
       placeholder="Mensaje"
       rows="5"
-      class="p-3 rounded bg-gray-100 dark:bg-gray-700"></textarea>
+      class="p-3 rounded"
+      style="
+        background-color: var(--form-field-bg);
+        color: var(--form-field-text);
+        border: 1px solid var(--form-field-border);
+      "
+    ></textarea>
 
     <button
-      class="bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition"
+      class="py-3 rounded transition"
+      style="
+        background-color: var(--form-btn-bg);
+        color: var(--form-btn-text);
+      "
+      onmouseover="this.style.backgroundColor='var(--form-btn-bg-hover)'"
+      onmouseout="this.style.backgroundColor='var(--form-btn-bg)'"
     >
       Enviar mensaje
     </button>

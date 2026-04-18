@@ -1,1 +1,66 @@
 @import "tailwindcss";
+
+:root {
+  --bg: white;
+  --text: #111;
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --nav-text: #111;
+  --nav-hover: #2563eb; /* azul-600 */
+  --card-bg: white;
+  --card-text: #111;
+  --card-subtext: #4b5563; /* gray-600 */
+  --card-tag-bg: #e5e7eb; /* gray-200 */
+  --card-link: #2563eb; /* blue-600 */
+  --btn-primary-bg: #2563eb;      /* blue-600 */
+  --btn-primary-bg-hover: #1d4ed8; /* blue-700 */
+  --btn-primary-text: white;
+  --btn-secondary-border: #d1d5db; /* gray-300 */
+  --btn-secondary-bg-hover: #f3f4f6; /* gray-100 */
+  --btn-secondary-text: #111;
+  --footer-text: #4b5563; /* gray-600 */
+  --footer-link: #2563eb; /* blue-600 */
+  --footer-link-hover: #1d4ed8; /* blue-700 */
+  --form-bg: white;
+  --form-text: #111;
+  --form-field-bg: #f3f4f6; /* gray-100 */
+  --form-field-text: #111;
+  --form-field-border: #d1d5db; /* gray-300 */
+  --form-btn-bg: #2563eb; /* blue-600 */
+  --form-btn-bg-hover: #1d4ed8; /* blue-700 */
+  --form-btn-text: white;
+}
+
+.dark {
+  --bg: #0f172a; /* slate-900 */
+  --text: #f1f5f9; /* slate-100 */
+  --nav-bg: rgba(15, 23, 42, 0.7); /* slate-900/70 */
+  --nav-text: #f1f5f9; /* slate-100 */
+  --nav-hover: #60a5fa; /* azul-400 */
+  --card-bg: #1e293b; /* slate-800 */
+  --card-text: #f1f5f9; /* slate-100 */
+  --card-subtext: #cbd5e1; /* slate-300 */
+  --card-tag-bg: #334155; /* slate-700 */
+  --card-link: #60a5fa; /* blue-400 */
+   --btn-primary-bg: #60a5fa;       /* blue-400 */
+  --btn-primary-bg-hover: #3b82f6; /* blue-500 */
+  --btn-primary-text: #0f172a;     /* slate-900 */
+  --btn-secondary-border: #475569; /* slate-600 */
+  --btn-secondary-bg-hover: #1e293b; /* slate-800 */
+  --btn-secondary-text: #f1f5f9;  /* slate-100 */
+  --footer-text: #94a3b8; /* slate-400 */
+  --footer-link: #60a5fa; /* blue-400 */
+  --footer-link-hover: #3b82f6; /* blue-500 */
+  --form-bg: #1e293b; /* slate-800 */
+  --form-text: #f1f5f9; /* slate-100 */
+  --form-field-bg: #334155; /* slate-700 */
+  --form-field-text: #f1f5f9;
+  --form-field-border: #475569; /* slate-600 */
+  --form-btn-bg: #60a5fa; /* blue-400 */
+  --form-btn-bg-hover: #3b82f6; /* blue-500 */
+  --form-btn-text: #0f172a; /* slate-900 */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}

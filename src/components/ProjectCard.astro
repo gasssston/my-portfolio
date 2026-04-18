@@ -10,16 +10,23 @@ const { title, description, tech, link } = Astro.props as ProjectCardProps;
 ---
 
 <div
-  class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 hover:-translate-y-1 transition"
+  class="shadow-md rounded-lg p-6 hover:-translate-y-1 hover:transition-all duration-200 h-full"
   data-aos="fade-up"
+  style="background-color: var(--card-bg); color: var(--card-text);"
 >
   <h4 class="text-xl font-semibold mb-2">{title}</h4>
-  <p class="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+
+  <p class="mb-4" style="color: var(--card-subtext);">
+    {description}
+  </p>
 
   <div class="flex flex-wrap gap-2 mb-4">
     {
       tech.map((t) => (
-        <span class="px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded">
+        <span
+          class="px-2 py-1 text-xs rounded"
+          style="background-color: var(--card-tag-bg); color: var(--card-text);"
+        >
           {t}
         </span>
       ))
@@ -29,6 +36,9 @@ const { title, description, tech, link } = Astro.props as ProjectCardProps;
   <a
     href={link}
     target="_blank"
-    class="text-blue-600 dark:text-blue-400 hover:underline">Ver proyecto</a
+    class="hover:underline"
+    style="color: var(--card-link);"
   >
+    Ver proyecto
+  </a>
 </div>
