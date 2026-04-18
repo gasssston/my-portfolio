@@ -22,5 +22,10 @@
   "project": {
     "view": "Ver Proyecto"
   },
-  "projects": "Proyectos"
+  "projects": {
+    "title": "Proyectos",
+    "first": "CRM con React + TS + Tailwind. CRUD básico, con pequeñas interacciones y validaciones.",
+    "second": "Tablero Kanban colaborativo con Angular, RxJS y JWT para autenticación.",
+    "third": "App de aeropuertos, gestionada por Vueling como prueba técnica ;D"
+  }
 }

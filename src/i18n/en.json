@@ -22,5 +22,10 @@
   "project": {
     "view": "View Project"
   },
-  "projects": "Projects"
+  "projects": {
+    "title": "Projects",
+    "first": "CRM with React + TS + Tailwind. Basic CRUD, with small interactions and validations.",
+    "second": "Collaborative Kanban board with Angular, RxJS and JWT for authentication.",
+    "third": "Airports app, managed by Vueling as a technical test ;D"
+  }
 }

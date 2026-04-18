@@ -3,12 +3,12 @@ import T from "./T";
 
 interface ProjectCardProps {
   title: string;
-  description: string;
+  descriptionKey: string;
   tech: string[];
   link: string;
 }
 
-const { title, description, tech, link } = Astro.props as ProjectCardProps;
+const { title, descriptionKey, tech, link } = Astro.props as ProjectCardProps;
 ---
 
 <div
@@ -19,7 +19,7 @@ const { title, description, tech, link } = Astro.props as ProjectCardProps;
   <h4 class="text-xl font-semibold mb-2">{title}</h4>
 
   <p class="mb-4" style="color: var(--card-subtext);">
-    {description}
+    <T client:load k={descriptionKey} />
   </p>
 
   <div class="flex flex-wrap gap-2 mb-4">
