@@ -1,12 +1,6 @@
 ---
+import type { ProjectCardProps } from "./Projects.astro";
 import T from "./T";
-
-interface ProjectCardProps {
-  title: string;
-  descriptionKey: string;
-  tech: string[];
-  link: string;
-}
 
 const { title, descriptionKey, tech, link } = Astro.props as ProjectCardProps;
 ---

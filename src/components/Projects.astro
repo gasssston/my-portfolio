@@ -2,6 +2,13 @@
 import ProjectCard from "./ProjectCard.astro";
 import T from "./T";
 
+export interface ProjectCardProps {
+  title: string;
+  descriptionKey: string;
+  tech: string[];
+  link: string;
+}
+
 const projects = [
   {
     title: "Client Manager",
@@ -21,7 +28,7 @@ const projects = [
     tech: ["Angular", "TypeScript"],
     link: "https://github.com/gasssston/airports-of-the-world",
   },
-];
+] as ProjectCardProps[];
 ---
 
 <section id="projects" class="max-w-5xl mx-auto py-4 sm:py-32 p-4">
