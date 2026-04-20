@@ -2,15 +2,15 @@
 import T from "./T";
 ---
 
-<section class="max-w-5xl mx-auto text-center py-28" data-aos="fade-up">
+<section class="max-w-5xl mx-auto text-center py-28 p-4" data-aos="fade-up">
   <img
     src="avatar.jpg"
-    class="w-48 h-48 rounded-md mx-auto mb-6 shadow-lg object-contain"
+    class="w-48 rounded-md mx-auto mb-6 shadow-lg object-contain"
   />
 
   <h2 class="text-5xl font-bold mb-4"><T client:load k="hero.title" /></h2>
 
-  <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+  <p class="text-xl max-w-2xl mx-auto" style="color: var(--hero-text);">
     <T client:load k="hero.subtitle" />
   </p>
 

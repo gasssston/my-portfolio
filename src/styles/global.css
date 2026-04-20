@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* -------------------------------------------------------
-   1) BASE TOKENS — Paleta de colores pura
+   1) BASE TOKENS — Pure color palette
 ------------------------------------------------------- */
 :root {
   --color-white: #ffffff;
@@ -27,7 +27,7 @@
 }
 
 /* -------------------------------------------------------
-   2) SEMANTIC TOKENS — Lo que usa la UI
+   2) SEMANTIC TOKENS — That UI uses
 ------------------------------------------------------- */
 :root {
   /* Backgrounds */
@@ -64,7 +64,7 @@
 }
 
 /* -------------------------------------------------------
-   3) COMPONENT TOKENS — Navbar, Cards, Botones, Footer, Form
+   3) COMPONENT TOKENS — Navbar, Cards, Hero, Buttons, Footer, Form
 ------------------------------------------------------- */
 
 /* Navbar */
@@ -72,12 +72,14 @@
   --nav-bg: rgba(255, 255, 255, 0.7);
   --nav-text: var(--text);
   --nav-hover: var(--accent);
+  --nav-bg-lang: var(--surface-alt);
 }
 
 .dark {
   --nav-bg: rgba(15, 23, 42, 0.7);
   --nav-text: var(--text);
   --nav-hover: var(--accent);
+  --nav-bg-lang: var(--surface-alt);
 }
 
 /* Cards */
@@ -95,6 +97,15 @@
   --card-subtext: var(--text-muted);
   --card-tag-bg: var(--surface-alt);
   --card-link: var(--accent);
+}
+
+/* Hero */
+:root {
+  --hero-text: var(--text);
+}
+
+.dark {
+  --hero-text: var(--text);
 }
 
 /* Buttons */
@@ -186,6 +197,9 @@ body {
   background-image: radial-gradient(var(--decor-color) 2px, transparent 2px);
 }
 
+/* -------------------------------------------------------
+   4) ANIMATIONS
+------------------------------------------------------- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }

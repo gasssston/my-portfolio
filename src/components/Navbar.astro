@@ -8,7 +8,7 @@ import T from "../components/T.jsx";
 >
   <h1 class="font-semibold text-lg">Gastón.dev</h1>
 
-  <div class="flex items-center gap-6">
+  <div class="flex items-center gap-2 sm:gap-6">
     <a
       href="#projects"
       class="hidden transition sm:block"
@@ -29,29 +29,42 @@ import T from "../components/T.jsx";
       <T client:load k="nav.contact" />
     </a>
 
-    <button
-      id="theme-toggle"
-      class="p-2 rounded transition cursor-pointer"
-      style="color: var(--nav-text);"
-    >
-      🌙
-    </button>
+    <div class="relative flex flex-row">
+      <button
+        id="lang-btn"
+        class="px-3 py-1 rounded transition flex items-center gap-1 cursor-pointer"
+        style="color: var(--nav-text);"
+        onmouseover="this.style.color='var(--nav-hover)'"
+        onmouseout="this.style.color='var(--nav-text)'"
+      >
+        🌐 <span id="lang-label">ES</span>
+      </button>
 
-    <div class="flex gap-2">
-      <button
-        onclick="setLang('es')"
-        class="cursor-pointer rounded transition"
-        style="color: var(--nav-text);"
-        onmouseover="this.style.color='var(--nav-hover)'"
-        onmouseout="this.style.color='var(--nav-text)'">ES</button
+      <div
+        id="lang-menu"
+        class="absolute right-10 mt-8 shadow rounded-md hidden transition duration-200 cursor-pointer"
+        style="color: var(--nav-text); background-color: var(--nav-bg-lang);"
       >
+        <button
+          onclick="chooseLang('es')"
+          class="block px-4 py-2 w-full text-left rounded-md hover:bg-gray-300 transition duration-150 ease-in-out cursor-pointer"
+        >
+          ES
+        </button>
+        <button
+          onclick="chooseLang('en')"
+          class="block px-4 py-2 w-full text-left rounded-md hover:bg-gray-300 transition duration-150 ease-in-out cursor-pointer"
+        >
+          EN
+        </button>
+      </div>
       <button
-        onclick="setLang('en')"
-        class="cursor-pointer rounded transition"
+        id="theme-toggle"
+        class="p-2 rounded transition cursor-pointer"
         style="color: var(--nav-text);"
-        onmouseover="this.style.color='var(--nav-hover)'"
-        onmouseout="this.style.color='var(--nav-text)'">EN</button
       >
+        🌙
+      </button>
     </div>
   </div>
 
@@ -60,7 +73,6 @@ import T from "../components/T.jsx";
     window.setLang = changeLang;
 
     const btn = document.getElementById("theme-toggle");
-
     if (btn)
       btn.onclick = () => {
         document.documentElement.classList.toggle("dark");
@@ -68,9 +80,26 @@ import T from "../components/T.jsx";
           ? "dark"
           : "light";
       };
-
     if (localStorage.theme === "dark") {
       document.documentElement.classList.add("dark");
+    }
+
+    const langBtn = document.getElementById("lang-btn");
+    const langMenu = document.getElementById("lang-menu");
+    const langLabel = document.getElementById("lang-label");
+
+    if (langBtn && langMenu && langLabel) {
+      langBtn.onclick = () => langMenu?.classList.toggle("hidden");
+
+      window.chooseLang = function (lang) {
+        window.setLang(lang);
+        langLabel.textContent = lang.toUpperCase();
+        localStorage.setItem("selectedLang", lang);
+        langMenu.classList.add("hidden");
+      };
+
+      const savedLang = localStorage.getItem("selectedLang") || "es";
+      langLabel.textContent = savedLang.toUpperCase();
     }
   </script>
 </nav>
