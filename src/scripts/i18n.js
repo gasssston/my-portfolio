@@ -4,7 +4,6 @@ import en from "../i18n/en.json";
 
 let savedLang = "es";
 
-// Solo acceder a localStorage en el navegador
 if (typeof window !== "undefined") {
   savedLang = localStorage.getItem("lang") || "es";
 }

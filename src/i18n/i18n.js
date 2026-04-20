@@ -5,7 +5,7 @@ import en from "./en.json";
 let initialized = false;
 
 export async function initI18n() {
-  if (initialized) return i18next; // evitar doble init
+  if (initialized) return i18next;
 
   let saved = "es";
 
@@ -27,7 +27,7 @@ export async function initI18n() {
 }
 
 export function changeLang(lang) {
-  if (!initialized) return; // evitar error si no está listo
+  if (!initialized) return;
 
   i18next.changeLanguage(lang);
 
