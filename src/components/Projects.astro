@@ -17,7 +17,7 @@ const projects = data?.map((projectBBDD) => ({
   descriptionKey: projectBBDD.description_key,
   tech: JSON.parse(projectBBDD.tech),
   link: projectBBDD.link,
-}));
+})) as ProjectCardProps[];
 ---
 
 <section id="projects" class="max-w-5xl mx-auto py-4 sm:py-32 p-4">
