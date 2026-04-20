@@ -1,0 +1,68 @@
+---
+import T from "../components/T.jsx";
+---
+
+<section id="about" class="max-w-5xl mx-auto p-4" data-aos="fade-up">
+  <div class="flex flex-col items-center text-center mb-4">
+    <img
+      src="/avatar.jpg"
+      alt="Profile photo"
+      class="w-48 h-48 rounded-xl shadow-lg object-cover mb-6"
+    />
+
+    <h2 class="text-4xl font-bold mb-3">
+      <T client:load k="hero.title" />
+    </h2>
+
+    <p class="text-xl max-w-2xl" style="color: var(--hero-text);">
+      <T client:load k="hero.subtitle" />
+    </p>
+  </div>
+  <div
+    class="space-y-5 text-lg leading-relaxed max-w-3xl mx-auto mb-8 p-8 rounded-lg shadow-md"
+    style="background-color: var(--form-bg); color: var(--form-text);"
+  >
+    <p><T client:load k="about.p1" /></p>
+    <p><T client:load k="about.p2" /></p>
+    <p><T client:load k="about.p3" /></p>
+    <p><T client:load k="about.p4" /></p>
+    <p><T client:load k="about.p5" /></p>
+    <p><T client:load k="about.p6" /></p>
+    <p><T client:load k="about.p7" /></p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
+    <div
+      class="p-6 rounded-lg shadow-md"
+      style="background-color: var(--form-bg); color: var(--form-text);"
+      data-aos="fade-up"
+    >
+      <h3 class="text-xl font-semibold mb-2">Front-End</h3>
+      <p class="text-sm opacity-80">
+        Angular · React · Ionic · TypeScript · HTML · CSS
+      </p>
+    </div>
+    <div
+      class="p-6 rounded-xl shadow bg-white dark:bg-gray-800"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <h3 class="text-xl font-semibold mb-2">Back-End</h3>
+      <p class="text-sm opacity-80">
+        Spring Boot · Java · NodeJS · PHP · Python
+      </p>
+    </div>
+    <div
+      class="p-6 rounded-xl shadow bg-white dark:bg-gray-800"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <h3 class="text-xl font-semibold mb-2">
+        <T client:load k="about.mobile_others" />
+      </h3>
+      <p class="text-sm opacity-80">
+        React Native ·Ionic · Android · Swift (iOS) · MySQL · DevOps basics
+      </p>
+    </div>
+  </div>
+</section>

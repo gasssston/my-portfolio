@@ -1,20 +1,12 @@
 ---
+import About from "./About.astro";
 import T from "./T";
 ---
 
-<section class="max-w-5xl mx-auto text-center py-28 p-4" data-aos="fade-up">
-  <img
-    src="avatar.jpg"
-    class="w-48 rounded-md mx-auto mb-6 shadow-lg object-contain"
-  />
+<section class="max-w-5xl mx-auto text-center py-4 p-4" data-aos="fade-up">
+  <About />
 
-  <h2 class="text-5xl font-bold mb-4"><T client:load k="hero.title" /></h2>
-
-  <p class="text-xl max-w-2xl mx-auto" style="color: var(--hero-text);">
-    <T client:load k="hero.subtitle" />
-  </p>
-
-  <div class="mt-10 flex justify-center gap-4">
+  <div class="flex justify-center gap-4">
     <a
       href="#projects"
       class="px-6 py-3 rounded-lg transition"

@@ -8,6 +8,16 @@
     "projects": "View Projects",
     "contact": "Contact"
   },
+  "about": {
+    "p1": "I’m a 25-year-old developer currently looking for new opportunities in Barcelona, whether hybrid or fully remote. I’m now working at a consultancy while waiting to join a new client project.",
+    "p2": "I completed a Higher National Diploma in Web Application Development (DAW) in L’Hospitalet de Llobregat with an excellent final grade. Programming is more than a job for me — it’s my hobby and my passion.",
+    "p3": "I have 5 years of professional experience, and although I enjoy Front-End development the most, I also have solid Back-End skills.",
+    "p4": "I’ve worked on modern and exciting projects: at Averlance, where we built a smart-fridge system now expanding across Europe; and at Vueling, where I contributed to core pages such as the Home and the booking status flows.",
+    "p5": "My strongest skill is Angular — any version — and I also work confidently with Ionic for mobile app development. I’ve completed several courses, including RxJS, React, Python, and more.",
+    "p6": "I adapt quickly to any programming language and always give 100%. I’ve built personal projects in React, and I’ve also worked with Python, Spring Boot, Java, Android, and even Swift for iOS.",
+    "p7": "I integrate easily into any team, communicate well, and I’m highly organized, dedicated, and committed to delivering my best in every project.",
+    "mobile_others": "Mobile & Others"
+  },
   "nav": {
     "projects": "Projects",
     "contact": "Contact"
