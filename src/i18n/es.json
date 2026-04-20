@@ -19,7 +19,7 @@
     "mobile_others": "Móvil & Otros"
   },
   "nav": {
-    "projects": "Proyectos",
+    "projects": "Personales",
     "contact": "Contacto"
   },
   "contact": {
@@ -33,7 +33,7 @@
     "view": "Ver Proyecto"
   },
   "projects": {
-    "title": "Proyectos",
+    "title": "Proyectos Proyectos",
     "first": "CRM con React + TS + Tailwind. CRUD básico, con pequeñas interacciones y validaciones.",
     "second": "Tablero Kanban colaborativo con Angular, RxJS y JWT para autenticación.",
     "third": "App de aeropuertos, gestionada por Vueling como prueba técnica ;D"
