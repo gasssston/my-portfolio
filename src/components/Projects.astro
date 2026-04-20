@@ -8,35 +8,33 @@ export interface ProjectCardProps {
   tech: string[];
   link: string;
 }
+import { supabase } from "../lib/supabase";
 
-const projects = [
-  {
-    title: "Client Manager",
-    descriptionKey: "projects.first",
-    tech: ["React", "TypeScript", "Tailwind"],
-    link: "https://github.com/gasssston/client-manager",
-  },
-  {
-    title: "Kanban Collab",
-    descriptionKey: "projects.second",
-    tech: ["Angular", "RxJS", "JWT"],
-    link: "https://github.com/gasssston/kanban-collab",
-  },
-  {
-    title: "Airports of the World",
-    descriptionKey: "projects.third",
-    tech: ["Angular", "TypeScript"],
-    link: "https://github.com/gasssston/airports-of-the-world",
-  },
-] as ProjectCardProps[];
+const { data, error } = await supabase.from("projects").select("*");
+
+const projects = data?.map((projectBBDD) => ({
+  title: projectBBDD.title,
+  descriptionKey: projectBBDD.description_key,
+  tech: JSON.parse(projectBBDD.tech),
+  link: projectBBDD.link,
+}));
 ---
 
 <section id="projects" class="max-w-5xl mx-auto py-4 sm:py-32 p-4">
   <h3 class="text-3xl font-semibold mb-10 text-center">
     <T client:load k="projects.title" />
   </h3>
-
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {projects.map((p) => <ProjectCard {...p} />)}
-  </div>
+  {
+    !error ? (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects?.map((p) => (
+          <ProjectCard {...p} />
+        ))}
+      </div>
+    ) : (
+      <p class="text-center text-red-500">
+        <T client:load k="projects.error" />
+      </p>
+    )
+  }
 </section>
