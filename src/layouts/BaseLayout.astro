@@ -11,7 +11,7 @@ interface BaseLayoutProps {
 const {
   title = "Gastón Gómez – Front-End Developer",
   description = "Portfolio profesional de Gastón Gómez, desarrollador Front-End especializado en Angular, React, Ionic y TypeScript.",
-  image = "/og-image.png",
+  image = "/avatar.jpg",
 } = Astro.props as BaseLayoutProps;
 ---
 
@@ -32,28 +32,23 @@ const {
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
 
   <body class="font-inter">
     <div
       id="loader"
+      class="fixed inset-0 flex items-center justify-center"
       style="
-    position: fixed;
-    inset: 0;
     background: var(--loader-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 9999;
     transition: opacity 0.4s ease;
   "
     >
       <span
+        class="text-4xl font-bold opacity-0"
         style="
-      font-size: 2rem;
-      font-weight: 700;
       color: var(--loader-text);
-      opacity: 0;
       animation: fadeIn 0.8s ease forwards;
     "
       >
