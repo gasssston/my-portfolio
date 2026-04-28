@@ -3,12 +3,15 @@ import T from "../components/T.jsx";
 ---
 
 <nav
-  class="w-full py-4 px-6 flex justify-between items-center backdrop-blur sticky top-0 z-50"
-  style="background-color: var(--nav-bg); color: var(--nav-text);"
+  id="main-nav"
+  class="w-full py-4 px-6 flex justify-between items-center sticky top-0 z-50 transition-all duration-300"
+  style="background-color: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);"
 >
-  <h1 class="font-semibold text-lg">Gastón.dev</h1>
+  <a href="/" class="font-bold text-lg tracking-tight" style="font-family: 'Syne', sans-serif; color: var(--text);">
+    Gastón<span style="color: var(--accent);">.dev</span>
+  </a>
 
-  <div class="flex items-center gap-2 sm:gap-6">
+  <div class="flex items-center gap-6">
     <a href="#projects" class="nav-link hidden sm:block">
       <T client:load k="nav.projects" />
     </a>
@@ -17,41 +20,77 @@ import T from "../components/T.jsx";
       <T client:load k="nav.contact" />
     </a>
 
-    <div class="relative flex flex-row">
-      <button
-        id="lang-btn"
-        class="px-3 py-1 rounded transition flex items-center gap-1 cursor-pointer"
-        style="color: var(--nav-text);"
-        onmouseover="this.style.color='var(--nav-hover)'"
-        onmouseout="this.style.color='var(--nav-text)'"
-      >
-        🌐 <span id="lang-label">ES</span>
-      </button>
+    <div class="flex items-center gap-2">
+      <!-- Language switcher -->
+      <div class="relative">
+        <button
+          id="lang-btn"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer"
+          style="color: var(--text-muted); border: 1px solid var(--border);"
+          aria-label="Switch language"
+          aria-haspopup="listbox"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span id="lang-label">ES</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
 
-      <div
-        id="lang-menu"
-        class="absolute right-10 mt-10 shadow rounded-md hidden transition duration-200 cursor-pointer"
-        style="color: var(--nav-text); background-color: var(--nav-bg-lang);"
-      >
-        <button
-          onclick="chooseLang('es')"
-          class="block px-4 py-2 w-full text-left rounded-md hover:bg-gray-300 transition duration-150 ease-in-out cursor-pointer"
+        <div
+          id="lang-menu"
+          class="absolute right-0 mt-2 hidden rounded-xl overflow-hidden shadow-xl"
+          style="
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            min-width: 100px;
+            z-index: 100;
+          "
+          role="listbox"
         >
-          ES
-        </button>
-        <button
-          onclick="chooseLang('en')"
-          class="block px-4 py-2 w-full text-left rounded-md hover:bg-gray-300 transition duration-150 ease-in-out cursor-pointer"
-        >
-          EN
-        </button>
+          <button
+            onclick="chooseLang('es')"
+            class="flex items-center gap-2 w-full px-4 py-2.5 text-sm font-medium transition-colors duration-150 cursor-pointer text-left"
+            style="color: var(--text-muted);"
+            role="option"
+          >
+            <span class="text-base">🇪🇸</span> Español
+          </button>
+          <button
+            onclick="chooseLang('en')"
+            class="flex items-center gap-2 w-full px-4 py-2.5 text-sm font-medium transition-colors duration-150 cursor-pointer text-left"
+            style="color: var(--text-muted);"
+            role="option"
+          >
+            <span class="text-base">🇬🇧</span> English
+          </button>
+        </div>
       </div>
+
+      <!-- Theme toggle -->
       <button
         id="theme-toggle"
-        class="p-2 rounded transition cursor-pointer"
-        style="color: var(--nav-text);"
+        class="p-2 rounded-lg transition-all duration-200 cursor-pointer"
+        style="color: var(--text-muted); border: 1px solid var(--border);"
+        aria-label="Toggle theme"
       >
-        🌙
+        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
       </button>
     </div>
   </div>
@@ -60,26 +99,49 @@ import T from "../components/T.jsx";
     import { changeLang } from "../i18n/i18n.js";
     window.setLang = changeLang;
 
-    const btn = document.getElementById("theme-toggle");
-    if (btn)
-      btn.onclick = () => {
+    // Scroll-aware navbar
+    const nav = document.getElementById("main-nav");
+    window.addEventListener("scroll", () => {
+      nav?.classList.toggle("nav-scrolled", window.scrollY > 20);
+    }, { passive: true });
+
+    // Theme toggle
+    const themeBtn = document.getElementById("theme-toggle");
+    const iconMoon = document.getElementById("icon-moon");
+    const iconSun = document.getElementById("icon-sun");
+
+    function updateThemeIcon() {
+      const isDark = document.documentElement.classList.contains("dark");
+      if (iconMoon) iconMoon.style.display = isDark ? "block" : "none";
+      if (iconSun)  iconSun.style.display  = isDark ? "none"  : "block";
+    }
+
+    if (themeBtn) {
+      themeBtn.onclick = () => {
         document.documentElement.classList.toggle("dark");
-        localStorage.theme = document.documentElement.classList.contains("dark")
-          ? "dark"
-          : "light";
+        localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+        updateThemeIcon();
       };
+    }
     if (localStorage.theme === "dark") {
       document.documentElement.classList.add("dark");
     }
+    updateThemeIcon();
 
-    const langBtn = document.getElementById("lang-btn");
+    // Language menu
+    const langBtn  = document.getElementById("lang-btn");
     const langMenu = document.getElementById("lang-menu");
     const langLabel = document.getElementById("lang-label");
 
     if (langBtn && langMenu && langLabel) {
-      langBtn.onclick = () => langMenu?.classList.toggle("hidden");
+      langBtn.onclick = (e) => {
+        e.stopPropagation();
+        langMenu.classList.toggle("hidden");
+      };
 
-      window.chooseLang = function (lang) {
+      document.addEventListener("click", () => langMenu.classList.add("hidden"));
+
+      window.chooseLang = function(lang) {
         window.setLang(lang);
         langLabel.textContent = lang.toUpperCase();
         localStorage.setItem("lang", lang);
@@ -89,5 +151,17 @@ import T from "../components/T.jsx";
       const savedLang = localStorage.getItem("lang") || "es";
       langLabel.textContent = savedLang.toUpperCase();
     }
+
+    // Hover styles for lang menu buttons
+    document.querySelectorAll("#lang-menu button").forEach((btn) => {
+      btn.addEventListener("mouseenter", () => {
+        (btn as HTMLElement).style.color = "var(--text)";
+        (btn as HTMLElement).style.background = "var(--surface-alt)";
+      });
+      btn.addEventListener("mouseleave", () => {
+        (btn as HTMLElement).style.color = "var(--text-muted)";
+        (btn as HTMLElement).style.background = "transparent";
+      });
+    });
   </script>
 </nav>

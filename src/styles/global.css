@@ -1,229 +1,498 @@
 @import "tailwindcss";
 
-/* -------------------------------------------------------
-   1) BASE TOKENS — Pure color palette
-------------------------------------------------------- */
+/* ======================================================
+   1. BASE PALETTE
+====================================================== */
 :root {
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --void:      #07070f;
+  --deep-1:    #0b0b18;
+  --deep-2:    #0f0f1e;
+  --deep-3:    #161628;
+  --deep-4:    #1d1d35;
 
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-600: #4b5563;
+  --violet-900: #2e1065;
+  --violet-700: #5b21b6;
+  --violet-600: #7c3aed;
+  --violet-500: #8b5cf6;
+  --violet-400: #a78bfa;
+  --violet-300: #c4b5fd;
 
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
-  --color-slate-100: #f1f5f9;
-  --color-slate-300: #cbd5e1;
-  --color-slate-400: #94a3b8;
+  --cyan-500: #06b6d4;
+  --cyan-400: #22d3ee;
+  --cyan-300: #67e8f9;
 
-  --color-blue-400: #60a5fa;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
+  --gold: #f59e0b;
+
+  --ink-50:  #f5f4ff;
+  --ink-100: #eeeef8;
+  --ink-200: #c8c8e0;
+  --ink-300: #9898b8;
+  --ink-500: #5a5a7a;
+  --ink-700: #252535;
 }
 
-/* -------------------------------------------------------
-   2) SEMANTIC TOKENS — That UI uses
-------------------------------------------------------- */
+/* ======================================================
+   2. SEMANTIC TOKENS (light mode defaults)
+====================================================== */
 :root {
-  /* Backgrounds */
-  --bg: var(--color-white);
-  --surface: var(--color-white);
-  --surface-alt: var(--color-gray-50);
+  --bg:           #f6f5ff;
+  --surface:      #ffffff;
+  --surface-alt:  #ededff;
+  --surface-glass: rgba(255, 255, 255, 0.75);
 
-  /* Text */
-  --text: var(--color-black);
-  --text-muted: var(--color-gray-600);
+  --text:         #0d0d1e;
+  --text-muted:   #5a5a7a;
+  --text-dim:     #9898b8;
 
-  /* Borders */
-  --border: var(--color-gray-300);
+  --border:       rgba(0, 0, 0, 0.07);
+  --border-strong: rgba(0, 0, 0, 0.14);
 
-  /* Accent */
-  --accent: var(--color-blue-600);
-  --accent-hover: var(--color-blue-700);
-  --accent-contrast: var(--color-white);
-}
+  --accent:          var(--violet-600);
+  --accent-hover:    var(--violet-700);
+  --accent-glow:     rgba(124, 58, 237, 0.18);
+  --accent-contrast: #ffffff;
+  --accent2:         #0891b2;
+  --accent2-glow:    rgba(8, 145, 178, 0.15);
 
-.dark {
-  --bg: var(--color-slate-900);
-  --surface: var(--color-slate-800);
-  --surface-alt: var(--color-slate-700);
+  --orb-1: rgba(124, 58, 237, 0.10);
+  --orb-2: rgba(6, 182, 212, 0.07);
+  --orb-3: rgba(124, 58, 237, 0.06);
 
-  --text: var(--color-slate-100);
-  --text-muted: var(--color-slate-300);
+  /* Component tokens */
+  --nav-bg:       rgba(246, 245, 255, 0.82);
+  --nav-text:     var(--text);
+  --nav-hover:    var(--accent);
+  --nav-bg-lang:  var(--surface);
 
-  --border: var(--color-slate-600);
-
-  --accent: var(--color-blue-400);
-  --accent-hover: var(--color-blue-500);
-  --accent-contrast: var(--color-slate-900);
-}
-
-/* -------------------------------------------------------
-   3) COMPONENT TOKENS — Navbar, Cards, Hero, Buttons, Footer, Form
-------------------------------------------------------- */
-
-/* Navbar */
-:root {
-  --nav-bg: rgba(255, 255, 255, 0.7);
-  --nav-text: var(--text);
-  --nav-hover: var(--accent);
-  --nav-bg-lang: var(--surface-alt);
-}
-
-.dark {
-  --nav-bg: rgba(15, 23, 42, 0.7);
-  --nav-text: var(--text);
-  --nav-hover: var(--accent);
-  --nav-bg-lang: var(--surface-alt);
-}
-
-/* Cards */
-:root {
-  --card-bg: var(--surface);
-  --card-text: var(--text);
+  --card-bg:      var(--surface);
+  --card-text:    var(--text);
   --card-subtext: var(--text-muted);
-  --card-tag-bg: var(--surface-alt);
-  --card-link: var(--accent);
-}
+  --card-tag-bg:  var(--surface-alt);
+  --card-link:    var(--accent);
 
-.dark {
-  --card-bg: var(--surface);
-  --card-text: var(--text);
-  --card-subtext: var(--text-muted);
-  --card-tag-bg: var(--surface-alt);
-  --card-link: var(--accent);
-}
+  --hero-text:    var(--text-muted);
 
-/* Hero */
-:root {
-  --hero-text: var(--text);
-}
-
-.dark {
-  --hero-text: var(--text);
-}
-
-/* Buttons */
-:root {
-  --btn-primary-bg: var(--accent);
+  --btn-primary-bg:       var(--accent);
   --btn-primary-bg-hover: var(--accent-hover);
-  --btn-primary-text: var(--accent-contrast);
-
-  --btn-secondary-border: var(--border);
+  --btn-primary-text:     var(--accent-contrast);
+  --btn-secondary-border: var(--border-strong);
   --btn-secondary-bg-hover: var(--surface-alt);
-  --btn-secondary-text: var(--text);
-}
+  --btn-secondary-text:   var(--text);
 
-.dark {
-  --btn-secondary-bg-hover: var(--surface-alt);
-}
+  --footer-text:       var(--text-muted);
+  --footer-link:       var(--text-muted);
+  --footer-link-hover: var(--accent);
 
-/* Footer */
-:root {
-  --footer-text: var(--text-muted);
-  --footer-link: var(--accent);
-  --footer-link-hover: var(--accent-hover);
-}
-
-/* Form */
-:root {
-  --form-bg: var(--surface);
-  --form-text: var(--text);
-  --form-field-bg: var(--surface-alt);
-  --form-field-text: var(--text);
-  --form-field-border: var(--border);
-  --form-btn-bg: var(--accent);
+  --form-bg:           var(--surface);
+  --form-text:         var(--text);
+  --form-field-bg:     var(--surface-alt);
+  --form-field-text:   var(--text);
+  --form-field-border: var(--border-strong);
+  --form-btn-bg:       var(--accent);
   --form-btn-bg-hover: var(--accent-hover);
-  --form-btn-text: var(--accent-contrast);
-}
+  --form-btn-text:     var(--accent-contrast);
 
-/* Loader */
-:root {
-  --loader-bg: var(--bg);
+  --loader-bg:   var(--bg);
   --loader-text: var(--accent);
+
+  --decor-dot: rgba(0, 0, 0, 0.055);
 }
 
+/* ======================================================
+   3. DARK MODE
+====================================================== */
 .dark {
-  --loader-bg: var(--bg);
-  --loader-text: var(--accent);
+  --bg:           var(--deep-1);
+  --surface:      var(--deep-2);
+  --surface-alt:  var(--deep-3);
+  --surface-glass: rgba(15, 15, 30, 0.75);
+
+  --text:         var(--ink-100);
+  --text-muted:   var(--ink-300);
+  --text-dim:     var(--ink-500);
+
+  --border:       rgba(255, 255, 255, 0.065);
+  --border-strong: rgba(255, 255, 255, 0.11);
+
+  --accent:          var(--violet-500);
+  --accent-hover:    var(--violet-400);
+  --accent-glow:     rgba(139, 92, 246, 0.22);
+  --accent2:         var(--cyan-400);
+  --accent2-glow:    rgba(34, 211, 238, 0.14);
+
+  --orb-1: rgba(139, 92, 246, 0.16);
+  --orb-2: rgba(34, 211, 238, 0.09);
+  --orb-3: rgba(139, 92, 246, 0.07);
+
+  --nav-bg: rgba(11, 11, 24, 0.88);
+  --nav-bg-lang: var(--surface-alt);
+
+  --footer-link: var(--ink-300);
+
+  --decor-dot: rgba(255, 255, 255, 0.045);
 }
 
-:root {
-  --decor-color: rgba(0, 0, 0, 0.06);
-}
+/* ======================================================
+   4. GLOBAL BASE
+====================================================== */
+*, *::before, *::after { box-sizing: border-box; }
 
-.dark {
-  --decor-color: rgba(255, 255, 255, 0.08);
-}
-
-/* -------------------------------------------------------
-   4) GLOBAL STYLES
-------------------------------------------------------- */
 body {
   background: var(--bg);
   color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* ======================================================
+   5. BACKGROUND DECORATION
+====================================================== */
 .page-decor {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
+  overflow: hidden;
 }
 
-.page-decor-side {
+.dot-grid {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 180px;
-  background-repeat: repeat;
-  background-size: 12px 12px;
-  opacity: 1;
+  inset: 0;
+  background-image: radial-gradient(var(--decor-dot) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
 }
 
-.page-decor-left {
-  left: 0;
-  background-image: radial-gradient(var(--decor-color) 2px, transparent 2px);
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
 }
 
-.page-decor-right {
-  right: 0;
-  background-image: radial-gradient(var(--decor-color) 2px, transparent 2px);
+.orb-1 {
+  width: 700px;
+  height: 700px;
+  top: -250px;
+  right: -150px;
+  background: var(--orb-1);
+  animation: floatOrb 20s ease-in-out infinite;
 }
 
-/* -------------------------------------------------------
-   5) UTILITY CLASSES
-------------------------------------------------------- */
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: 5%;
+  left: -120px;
+  background: var(--orb-2);
+  animation: floatOrb 26s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  top: 55%;
+  left: 38%;
+  background: var(--orb-3);
+  animation: floatOrb 17s ease-in-out infinite 6s;
+}
+
+/* ======================================================
+   6. NAVBAR
+====================================================== */
+.nav-scrolled {
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.12);
+}
+
 .nav-link {
-  color: var(--nav-text);
-  transition: color 0.15s ease;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
 }
 .nav-link:hover,
 .nav-link:focus-visible {
-  color: var(--nav-hover);
+  color: var(--text);
   outline: none;
 }
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  width: 100%;
+}
 
+/* ======================================================
+   7. SECTION LABELS
+====================================================== */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ======================================================
+   8. GRADIENT TEXT
+====================================================== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ======================================================
+   9. AVATAR RING
+====================================================== */
+.avatar-ring {
+  display: inline-block;
+  padding: 3px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 32px var(--accent-glow);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+.avatar-ring img {
+  display: block;
+  border-radius: 17px;
+  position: relative;
+}
+
+/* ======================================================
+   10. PROJECT CARDS
+====================================================== */
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18), 0 0 0 1px transparent;
+}
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.tech-tag:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* ======================================================
+   11. SKILL CARDS
+====================================================== */
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.skill-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+/* ======================================================
+   12. BUTTONS
+====================================================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 8px 28px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-secondary:hover {
+  background: var(--surface-alt);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ======================================================
+   13. FOOTER LINKS
+====================================================== */
 .footer-link {
   color: var(--footer-link);
-  transition: color 0.15s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  text-decoration: none;
 }
 .footer-link:hover,
 .footer-link:focus-visible {
-  color: var(--footer-link-hover);
+  color: var(--accent);
   outline: none;
 }
 
-/* -------------------------------------------------------
-   6) ANIMATIONS
-------------------------------------------------------- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ======================================================
+   14. FORM INPUTS
+====================================================== */
+input, textarea {
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
+input:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+textarea { resize: vertical; }
+
+/* ======================================================
+   15. ANIMATIONS
+====================================================== */
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%       { transform: translate(45px, -35px) scale(1.04); }
+  50%       { transform: translate(-25px, 45px) scale(0.97); }
+  75%       { transform: translate(30px, 15px) scale(1.02); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 24px var(--accent-glow); }
+  50%       { box-shadow: 0 0 48px var(--accent-glow), 0 0 72px var(--accent2-glow); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+
+/* Entrance utility classes */
+.anim-fade-up {
+  opacity: 0;
+  animation: fadeInUp 0.65s ease forwards;
+}
+.anim-delay-1 { animation-delay: 0.1s; }
+.anim-delay-2 { animation-delay: 0.22s; }
+.anim-delay-3 { animation-delay: 0.34s; }
+.anim-delay-4 { animation-delay: 0.46s; }
+.anim-delay-5 { animation-delay: 0.58s; }

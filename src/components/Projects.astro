@@ -20,19 +20,25 @@ const projects = data?.map((projectBBDD) => ({
 })) as ProjectCardProps[];
 ---
 
-<section id="projects" class="max-w-5xl mx-auto py-4 sm:py-32 p-4">
-  <h3 class="text-3xl font-semibold mb-10 text-center">
-    <T client:load k="projects.title" />
-  </h3>
+<section id="projects" class="max-w-5xl mx-auto py-24 px-4">
+  <div class="text-center mb-14" data-aos="fade-up">
+    <div class="section-label justify-center mb-3">Work</div>
+    <h2 class="text-4xl font-bold">
+      <T client:load k="projects.title" />
+    </h2>
+  </div>
+
   {
     !error ? (
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects?.map((p) => (
-          <ProjectCard {...p} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects?.map((p, i) => (
+          <div data-aos="fade-up" data-aos-delay={i * 80}>
+            <ProjectCard {...p} />
+          </div>
         ))}
       </div>
     ) : (
-      <p class="text-center text-red-500">
+      <p class="text-center" style="color: var(--text-muted);">
         <T client:load k="projects.error" />
       </p>
     )

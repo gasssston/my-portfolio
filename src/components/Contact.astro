@@ -4,87 +4,92 @@ import T from "./T";
 import TextareaT from "./TextareaT";
 ---
 
-<section id="contact" class="max-w-3xl mx-auto py-12 p-4" data-aos="fade-up">
-  <h3 class="text-3xl font-semibold mb-6 text-center">
-    <T client:load k="contact.title" />
-  </h3>
+<section id="contact" class="max-w-2xl mx-auto py-24 px-4" data-aos="fade-up">
+  <div class="text-center mb-12">
+    <div class="section-label justify-center mb-3">Contact</div>
+    <h2 class="text-4xl font-bold mb-3">
+      <T client:load k="contact.title" />
+    </h2>
+    <p class="text-sm" style="color: var(--text-muted);">
+      <T client:load k="contact.subtitle" />
+    </p>
+  </div>
 
-  <form
-    class="grid gap-4 p-8 rounded-lg shadow-md"
-    style="background-color: var(--form-bg); color: var(--form-text);"
-    action="https://formspree.io/f/mlganegn"
-    method="POST"
+  <div
+    class="rounded-2xl p-8 sm:p-10"
+    style="background: var(--surface); border: 1px solid var(--border);"
   >
-    <div class="grid gap-1">
-      <label for="contact-name" class="text-sm font-medium opacity-70">
-        <T client:load k="contact.name" />
-      </label>
-      <InputT
-        id="contact-name"
-        client:load
-        name="name"
-        k="contact.name"
-        style={{
-          padding: "0.75rem",
-          borderRadius: "0.375rem",
-          backgroundColor: "var(--form-field-bg)",
-          color: "var(--form-field-text)",
-          border: "1px solid var(--form-field-border)",
-        }}
-      />
-    </div>
-
-    <div class="grid gap-1">
-      <label for="contact-email" class="text-sm font-medium opacity-70">
-        <T client:load k="contact.email" />
-      </label>
-      <InputT
-        id="contact-email"
-        client:load
-        type="email"
-        name="email"
-        k="contact.email"
-        style={{
-          padding: "0.75rem",
-          borderRadius: "0.375rem",
-          backgroundColor: "var(--form-field-bg)",
-          color: "var(--form-field-text)",
-          border: "1px solid var(--form-field-border)",
-        }}
-      />
-    </div>
-
-    <div class="grid gap-1">
-      <label for="contact-message" class="text-sm font-medium opacity-70">
-        <T client:load k="contact.message" />
-      </label>
-      <TextareaT
-        id="contact-message"
-        client:load
-        as="textarea"
-        name="message"
-        k="contact.message"
-        style={{
-          padding: "0.75rem",
-          borderRadius: "0.375rem",
-          backgroundColor: "var(--form-field-bg)",
-          color: "var(--form-field-text)",
-          border: "1px solid var(--form-field-border)",
-        }}
-      />
-    </div>
-
-    <button
-      type="submit"
-      class="py-3 rounded transition cursor-pointer"
-      style="
-        background-color: var(--form-btn-bg);
-        color: var(--form-btn-text);
-      "
-      onmouseover="this.style.backgroundColor='var(--form-btn-bg-hover)'"
-      onmouseout="this.style.backgroundColor='var(--form-btn-bg)'"
+    <form
+      class="grid gap-5"
+      action="https://formspree.io/f/mlganegn"
+      method="POST"
     >
-      <T client:load k="contact.send" />
-    </button>
-  </form>
+      <div class="grid gap-1.5">
+        <label for="contact-name" class="text-sm font-medium" style="color: var(--text-muted);">
+          <T client:load k="contact.name" />
+        </label>
+        <InputT
+          id="contact-name"
+          client:load
+          name="name"
+          k="contact.name"
+          style={{
+            padding: "0.875rem 1rem",
+            borderRadius: "10px",
+            backgroundColor: "var(--form-field-bg)",
+            color: "var(--form-field-text)",
+            border: "1px solid var(--form-field-border)",
+          }}
+        />
+      </div>
+
+      <div class="grid gap-1.5">
+        <label for="contact-email" class="text-sm font-medium" style="color: var(--text-muted);">
+          <T client:load k="contact.email" />
+        </label>
+        <InputT
+          id="contact-email"
+          client:load
+          type="email"
+          name="email"
+          k="contact.email"
+          style={{
+            padding: "0.875rem 1rem",
+            borderRadius: "10px",
+            backgroundColor: "var(--form-field-bg)",
+            color: "var(--form-field-text)",
+            border: "1px solid var(--form-field-border)",
+          }}
+        />
+      </div>
+
+      <div class="grid gap-1.5">
+        <label for="contact-message" class="text-sm font-medium" style="color: var(--text-muted);">
+          <T client:load k="contact.message" />
+        </label>
+        <TextareaT
+          id="contact-message"
+          client:load
+          name="message"
+          k="contact.message"
+          rows={5}
+          style={{
+            padding: "0.875rem 1rem",
+            borderRadius: "10px",
+            backgroundColor: "var(--form-field-bg)",
+            color: "var(--form-field-text)",
+            border: "1px solid var(--form-field-border)",
+          }}
+        />
+      </div>
+
+      <button type="submit" class="btn-primary justify-center mt-2">
+        <T client:load k="contact.send" />
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </form>
+  </div>
 </section>

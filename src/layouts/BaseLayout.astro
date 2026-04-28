@@ -10,7 +10,7 @@ interface BaseLayoutProps {
 
 const {
   title = "Gastón Gómez – Front-End Developer",
-  description = "Portfolio profesional de Gastón Gómez, desarrollador Front-End especializado en Angular, React, Ionic y TypeScript.",
+  description = "Portfolio of Gastón Gómez, Front-End Developer specialized in Angular, React, Ionic and TypeScript.",
   image = "/avatar.jpg",
 } = Astro.props as BaseLayoutProps;
 ---
@@ -42,34 +42,40 @@ const {
       ]
     })} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
 
-  <body class="font-inter">
+  <body>
+    <!-- Loader -->
     <div
       id="loader"
-      class="fixed inset-0 flex items-center justify-center"
-      style="
-    background: var(--loader-bg);
-    z-index: 9999;
-    transition: opacity 0.4s ease;
-  "
+      class="fixed inset-0 flex flex-col items-center justify-center gap-4"
+      style="background: var(--loader-bg); z-index: 9999; transition: opacity 0.5s ease;"
     >
-      <span
-        class="text-4xl font-bold opacity-0 text-center"
+      <div
         style="
-      color: var(--loader-text);
-      animation: fadeIn 0.8s ease forwards;
-    "
+          width: 40px;
+          height: 40px;
+          border: 2px solid var(--border-strong);
+          border-top-color: var(--accent);
+          border-radius: 50%;
+          animation: spin 0.75s linear infinite;
+        "
+      ></div>
+      <span
+        class="text-sm font-medium"
+        style="color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; font-family: 'DM Sans', sans-serif;"
       >
         <T client:load k="loader.text" />
       </span>
     </div>
+
     <script>
       window.addEventListener("load", () => {
         document.documentElement.classList.add("dark");
@@ -77,10 +83,8 @@ const {
         if (!loader) return;
         setTimeout(() => {
           loader.style.opacity = "0";
-          setTimeout(() => {
-            loader.style.display = "none";
-          }, 600);
-        }, 1000);
+          setTimeout(() => { loader.style.display = "none"; }, 600);
+        }, 900);
       });
 
       import { initI18n, changeLang } from "../i18n/i18n.js";
@@ -93,13 +97,23 @@ const {
         });
       });
     </script>
+
+    <!-- Background decoration -->
     <div class="page-decor">
-      <div class="page-decor-side page-decor-left"></div>
-      <div class="page-decor-side page-decor-right"></div>
+      <div class="dot-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
+
     <slot />
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" onload="AOS.init()"
-    ></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" onload="AOS.init({ duration: 700, once: true, offset: 60 })"></script>
   </body>
 </html>
+
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>

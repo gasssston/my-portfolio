@@ -26,7 +26,8 @@
     "contact": "Contact"
   },
   "contact": {
-    "title": "Contact",
+    "title": "Let's talk",
+    "subtitle": "Have a project in mind or just want to connect? Drop me a message.",
     "name": "Your name",
     "email": "Your email",
     "message": "Message",

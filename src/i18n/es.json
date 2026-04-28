@@ -26,7 +26,8 @@
     "contact": "Contacto"
   },
   "contact": {
-    "title": "Contacto",
+    "title": "Hablemos",
+    "subtitle": "¿Tienes un proyecto en mente o simplemente quieres contactar? Escríbeme.",
     "name": "Tu nombre",
     "email": "Tu email",
     "message": "Mensaje",

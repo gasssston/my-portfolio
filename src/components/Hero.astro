@@ -3,33 +3,19 @@ import About from "./About.astro";
 import T from "./T";
 ---
 
-<section class="max-w-5xl mx-auto text-center py-4 p-4" data-aos="fade-up">
+<section class="max-w-5xl mx-auto px-4 text-center" data-aos="fade-up">
   <About />
 
-  <div class="flex justify-center gap-4">
-    <a
-      href="#projects"
-      class="px-6 py-3 rounded-lg transition"
-      style="
-      background-color: var(--btn-primary-bg);
-      color: var(--btn-primary-text);
-    "
-      onmouseover="this.style.backgroundColor='var(--btn-primary-bg-hover)'"
-      onmouseout="this.style.backgroundColor='var(--btn-primary-bg)'"
-    >
+  <div class="flex justify-center gap-4 pb-20 pt-4" data-aos="fade-up" data-aos-delay="200">
+    <a href="#projects" class="btn-primary">
       <T client:load k="hero.projects" />
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
     </a>
 
-    <a
-      href="#contact"
-      class="px-6 py-3 rounded-lg transition border"
-      style="
-      border-color: var(--btn-secondary-border);
-      color: var(--btn-secondary-text);
-    "
-      onmouseover="this.style.backgroundColor='var(--btn-secondary-bg-hover)'"
-      onmouseout="this.style.backgroundColor='transparent'"
-    >
+    <a href="#contact" class="btn-secondary">
       <T client:load k="hero.contact" />
     </a>
   </div>

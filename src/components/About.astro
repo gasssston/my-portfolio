@@ -2,25 +2,35 @@
 import T from "../components/T.jsx";
 ---
 
-<section id="about" class="max-w-5xl mx-auto p-4" data-aos="fade-up">
-  <div class="flex flex-col items-center text-center mb-4">
-    <img
-      src="/avatar.jpg"
-      alt="Profile photo"
-      class="w-48 h-48 rounded-xl shadow-lg object-cover mb-6"
-    />
+<section id="about" class="max-w-5xl mx-auto px-4 pt-16 pb-8">
 
-    <h2 class="text-4xl font-bold mb-3">
+  <!-- Avatar + name block -->
+  <div class="flex flex-col items-center text-center mb-14" data-aos="fade-up">
+    <div class="avatar-ring mb-8">
+      <img
+        src="/avatar.jpg"
+        alt="Gastón Gómez – Front-End Developer"
+        class="w-44 h-44 object-cover"
+      />
+    </div>
+
+    <div class="section-label mb-4">About</div>
+
+    <h1 class="text-5xl sm:text-6xl font-extrabold mb-4" style="font-family:'Syne',sans-serif;">
       <T client:load k="hero.title" />
-    </h2>
+    </h1>
 
-    <p class="text-xl max-w-2xl" style="color: var(--hero-text);">
-      <T client:load k="hero.subtitle" />
+    <p class="text-xl max-w-2xl leading-relaxed" style="color: var(--text-muted);">
+      <span class="gradient-text font-semibold"><T client:load k="hero.subtitle" /></span>
     </p>
   </div>
+
+  <!-- Bio -->
   <div
-    class="space-y-5 text-lg leading-relaxed max-w-3xl mx-auto mb-8 p-8 rounded-lg shadow-md"
-    style="background-color: var(--form-bg); color: var(--form-text);"
+    class="rounded-2xl p-8 sm:p-10 mb-12 space-y-4 text-base leading-relaxed max-w-3xl mx-auto"
+    style="background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);"
+    data-aos="fade-up"
+    data-aos-delay="100"
   >
     <p><T client:load k="about.p1" /></p>
     <p><T client:load k="about.p2" /></p>
@@ -31,40 +41,39 @@ import T from "../components/T.jsx";
     <p><T client:load k="about.p7" /></p>
   </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
-    <div
-      class="p-6 rounded-lg shadow-md hover:-translate-y-1 hover:transition-all duration-200"
-      style="background-color: var(--form-bg); color: var(--form-text);"
-      data-aos="fade-up"
-    >
-      <h3 class="text-xl font-semibold mb-2">Front-End</h3>
-      <p class="text-sm opacity-80">
+  <!-- Skills grid -->
+  <div class="grid sm:grid-cols-3 gap-5" data-aos="fade-up" data-aos-delay="150">
+    <div class="skill-card">
+      <div class="flex items-center gap-2 mb-3">
+        <span style="font-size:1.3rem;">⚡</span>
+        <h3 class="text-base font-bold" style="font-family:'Syne',sans-serif;">Front-End</h3>
+      </div>
+      <p class="text-sm" style="color: var(--text-muted); line-height: 1.8;">
         <T client:load k="about.skills_frontend" />
       </p>
     </div>
-    <div
-      class="p-6 rounded-lg shadow-md hover:-translate-y-1 hover:transition-all duration-200"
-      style="background-color: var(--form-bg); color: var(--form-text);"
-      data-aos="fade-up"
-      data-aos-delay="100"
-    >
-      <h3 class="text-xl font-semibold mb-2">Back-End</h3>
-      <p class="text-sm opacity-80">
+
+    <div class="skill-card">
+      <div class="flex items-center gap-2 mb-3">
+        <span style="font-size:1.3rem;">🛠</span>
+        <h3 class="text-base font-bold" style="font-family:'Syne',sans-serif;">Back-End</h3>
+      </div>
+      <p class="text-sm" style="color: var(--text-muted); line-height: 1.8;">
         <T client:load k="about.skills_backend" />
       </p>
     </div>
-    <div
-      class="p-6 rounded-lg shadow-md hover:-translate-y-1 hover:transition-all duration-200"
-      style="background-color: var(--form-bg); color: var(--form-text);"
-      data-aos="fade-up"
-      data-aos-delay="200"
-    >
-      <h3 class="text-xl font-semibold mb-2">
-        <T client:load k="about.mobile_others" />
-      </h3>
-      <p class="text-sm opacity-80">
+
+    <div class="skill-card">
+      <div class="flex items-center gap-2 mb-3">
+        <span style="font-size:1.3rem;">📱</span>
+        <h3 class="text-base font-bold" style="font-family:'Syne',sans-serif;">
+          <T client:load k="about.mobile_others" />
+        </h3>
+      </div>
+      <p class="text-sm" style="color: var(--text-muted); line-height: 1.8;">
         <T client:load k="about.skills_mobile" />
       </p>
     </div>
   </div>
+
 </section>
