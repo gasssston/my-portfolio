@@ -21,11 +21,26 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gastón Gómez",
+      "jobTitle": "Front-End Developer",
+      "url": Astro.url.origin,
+      "sameAs": [
+        "https://www.linkedin.com/in/gassssty/",
+        "https://github.com/gasssston",
+        "https://x.com/gassssty_"
+      ]
+    })} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
@@ -70,8 +85,12 @@ const {
 
       import { initI18n, changeLang } from "../i18n/i18n.js";
 
-      initI18n().then(() => {
+      initI18n().then((i18n) => {
         window.setLang = changeLang;
+        document.documentElement.lang = i18n.language;
+        i18n.on("languageChanged", (lng) => {
+          document.documentElement.lang = lng;
+        });
       });
     </script>
     <div class="page-decor">

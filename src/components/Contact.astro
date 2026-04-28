@@ -15,46 +15,64 @@ import TextareaT from "./TextareaT";
     action="https://formspree.io/f/mlganegn"
     method="POST"
   >
-    <InputT
-      client:load
-      name="name"
-      k="contact.name"
-      style={{
-        padding: "0.75rem",
-        borderRadius: "0.375rem",
-        backgroundColor: "var(--form-field-bg)",
-        color: "var(--form-field-text)",
-        border: "1px solid var(--form-field-border)",
-      }}
-    />
+    <div class="grid gap-1">
+      <label for="contact-name" class="text-sm font-medium opacity-70">
+        <T client:load k="contact.name" />
+      </label>
+      <InputT
+        id="contact-name"
+        client:load
+        name="name"
+        k="contact.name"
+        style={{
+          padding: "0.75rem",
+          borderRadius: "0.375rem",
+          backgroundColor: "var(--form-field-bg)",
+          color: "var(--form-field-text)",
+          border: "1px solid var(--form-field-border)",
+        }}
+      />
+    </div>
 
-    <InputT
-      client:load
-      type="email"
-      name="email"
-      k="contact.email"
-      style={{
-        padding: "0.75rem",
-        borderRadius: "0.375rem",
-        backgroundColor: "var(--form-field-bg)",
-        color: "var(--form-field-text)",
-        border: "1px solid var(--form-field-border)",
-      }}
-    />
+    <div class="grid gap-1">
+      <label for="contact-email" class="text-sm font-medium opacity-70">
+        <T client:load k="contact.email" />
+      </label>
+      <InputT
+        id="contact-email"
+        client:load
+        type="email"
+        name="email"
+        k="contact.email"
+        style={{
+          padding: "0.75rem",
+          borderRadius: "0.375rem",
+          backgroundColor: "var(--form-field-bg)",
+          color: "var(--form-field-text)",
+          border: "1px solid var(--form-field-border)",
+        }}
+      />
+    </div>
 
-    <TextareaT
-      client:load
-      as="textarea"
-      name="message"
-      k="contact.message"
-      style={{
-        padding: "0.75rem",
-        borderRadius: "0.375rem",
-        backgroundColor: "var(--form-field-bg)",
-        color: "var(--form-field-text)",
-        border: "1px solid var(--form-field-border)",
-      }}
-    />
+    <div class="grid gap-1">
+      <label for="contact-message" class="text-sm font-medium opacity-70">
+        <T client:load k="contact.message" />
+      </label>
+      <TextareaT
+        id="contact-message"
+        client:load
+        as="textarea"
+        name="message"
+        k="contact.message"
+        style={{
+          padding: "0.75rem",
+          borderRadius: "0.375rem",
+          backgroundColor: "var(--form-field-bg)",
+          color: "var(--form-field-text)",
+          border: "1px solid var(--form-field-border)",
+        }}
+      />
+    </div>
 
     <button
       type="submit"

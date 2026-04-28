@@ -198,7 +198,30 @@ body {
 }
 
 /* -------------------------------------------------------
-   4) ANIMATIONS
+   5) UTILITY CLASSES
+------------------------------------------------------- */
+.nav-link {
+  color: var(--nav-text);
+  transition: color 0.15s ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--nav-hover);
+  outline: none;
+}
+
+.footer-link {
+  color: var(--footer-link);
+  transition: color 0.15s ease;
+}
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--footer-link-hover);
+  outline: none;
+}
+
+/* -------------------------------------------------------
+   6) ANIMATIONS
 ------------------------------------------------------- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }

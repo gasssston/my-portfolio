@@ -16,7 +16,10 @@
     "p5": "My strongest skill is Angular — any version — and I also work confidently with Ionic for mobile app development. I’ve completed several courses, including RxJS, React, Python, and more.",
     "p6": "I adapt quickly to any programming language and always give 100%. I’ve built personal projects in React, and I’ve also worked with Python, Spring Boot, Java, Android, and even Swift for iOS.",
     "p7": "I integrate easily into any team, communicate well, and I’m highly organized, dedicated, and committed to delivering my best in every project.",
-    "mobile_others": "Mobile & Others"
+    "mobile_others": "Mobile & Others",
+    "skills_frontend": "Angular · React · Ionic · TypeScript · HTML · CSS",
+    "skills_backend": "Spring Boot · Java · NodeJS · PHP · Python",
+    "skills_mobile": "React Native · Ionic · Android · Swift (iOS) · MySQL · DevOps basics"
   },
   "nav": {
     "projects": "Projects",
