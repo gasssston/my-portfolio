@@ -25,6 +25,11 @@
     "projects": "Proyectos",
     "contact": "Contacto"
   },
+  "sections": {
+    "about": "Sobre mí",
+    "work": "Proyectos",
+    "contact": "Contacto"
+  },
   "contact": {
     "title": "Hablemos",
     "subtitle": "¿Tienes un proyecto en mente o simplemente quieres contactar? Escríbeme.",

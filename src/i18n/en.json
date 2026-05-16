@@ -25,6 +25,11 @@
     "projects": "Projects",
     "contact": "Contact"
   },
+  "sections": {
+    "about": "About",
+    "work": "Work",
+    "contact": "Contact"
+  },
   "contact": {
     "title": "Let's talk",
     "subtitle": "Have a project in mind or just want to connect? Drop me a message.",
